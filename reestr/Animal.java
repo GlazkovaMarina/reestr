@@ -9,7 +9,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public  class Animal {
+public abstract class Animal {
     private String name;
     private Date birthday;
     private ArrayList<String> commands;
