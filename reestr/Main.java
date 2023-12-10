@@ -1,6 +1,8 @@
 package reestr;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -60,7 +62,7 @@ public class Main {
         int number = -1;
         while (number != 1 || number != 2 || number != 0) {
             System.out.println(
-                    "\nОСНОВНОЕ МЕНЮ\nЭто реестр животных!\nВыберите действие:\n1 - завести новое животное;\n2 - вывести список животных в реестре;\n3 - вывести команды, выбранного животного;\n0 - завершить работу с реестром!");
+                    "\nОСНОВНОЕ МЕНЮ\nЭто реестр животных!\nВыберите действие:\n1 - завести новое животное;\n2 - вывести список животных в реестре;\n3 - вывести команды, выбранного животного;\n4 - добавить команду, выбранному животному;\n0 - завершить работу с реестром!");
             number = sc.nextInt();
             switch (number) {
                 case 0:
@@ -84,11 +86,26 @@ public class Main {
                     }
                     number = 2;
                     break;
+                case 4:
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+                    PrintReestr(animalReestr);
+                    System.out.println("Выберите животное, указав его порядковый номер в списке: ");
+                    number = sc.nextInt();
+                    int k = 1;
+                    for (Animal animal : animalReestr) {
+                        if (number == k++){
+                            System.out.println("Введите новую команду:");
+                            animal.newCommand(bufferedReader.readLine());
+                        }    
+                    }
+                    number = 4;    
+                    break;
                 default:
                     System.out.println("ОШИБКА! Некoрректный ввод!");
                     break;
             }
             if (number == 0){
+                sc.close();
                 break;
             }
         }
