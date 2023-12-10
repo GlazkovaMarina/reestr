@@ -16,4 +16,8 @@ public class Hamster extends Pet{
     public String getGenus() {
         return genus;
     }
+    @Override
+    public String toString() {
+        return "type = " + type + ", name = " + name + ", birthday = " + birthday + ", commands = " + commands + ", ownersLastName = " + ownersLastName + ", ownersFirstName = " + ownersFirstName + ", genus =  " + genus;
+    }
 }

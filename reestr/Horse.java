@@ -16,4 +16,8 @@ public class Horse extends PackAnimal{
     public String getKind() {
         return kind;
     }
+    @Override
+    public String toString() {
+        return "type = " + type + ", name = " + name + ", birthday = " + birthday + ", commands = " + commands + ", bearingForce = " + bearingForce +", kind =  " + kind;
+    }
 }

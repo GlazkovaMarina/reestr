@@ -3,9 +3,7 @@ package reestr;
 import java.util.Date;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -54,10 +52,6 @@ public abstract class Animal {
     }
     public void newCommand(String command) {
         this.commands.add(command);
-    }
-    @Override
-    public String toString() {
-        return "name = " + name + ", birthday = " + birthday.toString() + ", commands = " + commands;
     }
 }
 

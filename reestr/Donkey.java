@@ -16,4 +16,9 @@ public class Donkey extends PackAnimal{
     public String getStock() {
         return stock;
     }
+
+    @Override
+    public String toString() {
+        return "type = " + type + ", name = " + name + ", birthday = " + birthday + ", commands = " + commands + ", bearingForce = " + bearingForce +", stock =  " + stock;
+    }
 }

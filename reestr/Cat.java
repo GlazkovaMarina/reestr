@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Cat extends Pet{
-
     private String color;
 
     public Cat(String type) throws IOException {
@@ -19,5 +18,10 @@ public class Cat extends Pet{
     }
     public void setColor(String color) {
         this.color = color;
+    }
+
+    @Override
+    public String toString() {
+        return "type = " + type + ", name = " + name + ", birthday = " + birthday + ", commands = " + commands + ", ownersLastName = " + ownersLastName + ", ownersFirstName = " + ownersFirstName + ", color =  " + color;
     }
 }

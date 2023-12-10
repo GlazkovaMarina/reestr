@@ -16,4 +16,8 @@ public class Dog extends Pet{
     public String getStock() {
         return stock;
     }
+    @Override
+    public String toString() {
+        return "type = " + type + ", name = " + name + ", birthday = " + birthday + ", commands = " + commands + ", ownersLastName = " + ownersLastName + ", ownersFirstName = " + ownersFirstName + ", stock =  " + stock;
+    }
 }
