@@ -10,21 +10,21 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public abstract class Animal {
-    private String name;
-    private Date birthday;
-    private ArrayList<String> commands;
+    protected String name;
+    protected Date birthday;
+    protected ArrayList<String> commands;
 
     public Animal() {
         String tempBirthday = null;
         String tempCommands = null;
 
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
+        try (BufferedReader bufferedReaderA = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println("Введите имя животного: ");
-            name = bufferedReader.readLine();
+            name = bufferedReaderA.readLine();
             System.out.println("Введите дату рождения животного в формате yyyy-mm-dd (Н-р 2020-12-01): ");
-            tempBirthday = bufferedReader.readLine();
+            tempBirthday = bufferedReaderA.readLine();
             System.out.println("Введите команды, которые умеет выполнять животное через запятую и пробел (Н-р Сидеть, Лежать, Гавкать): ");
-            tempCommands = bufferedReader.readLine();  
+            tempCommands = bufferedReaderA.readLine();  
         } catch (IOException e) {
             e.printStackTrace();
         }
