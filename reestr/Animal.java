@@ -3,7 +3,9 @@ package reestr;
 import java.util.Date;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,20 +16,16 @@ public abstract class Animal {
     protected Date birthday;
     protected ArrayList<String> commands;
 
-    public Animal() {
+    public Animal() throws IOException {
         String tempBirthday = null;
         String tempCommands = null;
-
-        try (BufferedReader bufferedReaderA = new BufferedReader(new InputStreamReader(System.in))) {
-            System.out.println("Введите имя животного: ");
-            name = bufferedReaderA.readLine();
-            System.out.println("Введите дату рождения животного в формате yyyy-mm-dd (Н-р 2020-12-01): ");
-            tempBirthday = bufferedReaderA.readLine();
-            System.out.println("Введите команды, которые умеет выполнять животное через запятую и пробел (Н-р Сидеть, Лежать, Гавкать): ");
-            tempCommands = bufferedReaderA.readLine();  
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Введите имя животного: ");
+        name = bufferedReader.readLine();
+        System.out.println("Введите дату рождения животного в формате yyyy-mm-dd (Н-р 2020-12-01): ");
+        tempBirthday = bufferedReader.readLine();
+        System.out.println("Введите команды, которые умеет выполнять животное через запятую и пробел (Н-р Сидеть, Лежать, Гавкать): ");
+        tempCommands = bufferedReader.readLine(); 
 
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         try {
