@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static Object WhoIs(int number) throws IOException {
+    public static Animal WhoIs(int number) throws IOException {
         switch (number) {
             case 0:
                 Dog dog = new Dog("Собака");
@@ -30,7 +30,7 @@ public class Main {
         return null;
     }
 
-    public static void AddAnimal(ArrayList<Object> reestr) throws IOException {
+    public static void AddAnimal(ArrayList<Animal> reestr) throws IOException {
         Scanner sc = new Scanner(System.in);
         int number = -1;
         while (number < 0 || number > 5) {
@@ -45,7 +45,7 @@ public class Main {
         }
     }
 
-    public static void PrintReestr(ArrayList<Object> reestr) throws IOException {
+    public static void PrintReestr(ArrayList<Animal> reestr) throws IOException {
         int i = 1;
         System.out.println("\nРеестр:");
         for (Object animal : reestr) {
@@ -55,7 +55,7 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        ArrayList reestr = new ArrayList<Object>();
+        ArrayList<Animal> animalReestr = new ArrayList<Animal>();
         Scanner sc = new Scanner(System.in);
         int number = -1;
         while (number != 1 || number != 2 || number != 0) {
@@ -67,17 +67,29 @@ public class Main {
                     System.out.println("Работа с реестром завершена! До свидания!");
                     break;
                 case 1:
-                    AddAnimal(reestr);
+                    AddAnimal(animalReestr);
                     break;
                 case 2:
-                    PrintReestr(reestr);
+                    PrintReestr(animalReestr);
                     break;
                 case 3:
-                    
+                    PrintReestr(animalReestr);
+                    System.out.println("Выберите животное, указав его порядковый номер в списке: ");
+                    number = sc.nextInt();
+                    int i = 1;
+                    for (Animal animal : animalReestr) {
+                        if (number == i++){
+                            System.out.println(animal.getCommands());
+                        }    
+                    }
+                    number = 2;
                     break;
                 default:
                     System.out.println("ОШИБКА! Некoрректный ввод!");
                     break;
+            }
+            if (number == 0){
+                break;
             }
         }
 
