@@ -13,9 +13,19 @@ public class Camel extends PackAnimal{
 
     public Camel(String type) throws IOException {
         super(type);
-        System.out.println("Введите количество горбов: ");
         Scanner sc = new Scanner(System.in);
-        this.numberOfHumps = sc.nextInt();
+        boolean flag = true;
+        do{
+            System.out.println("Введите количество горбов: ");
+            if (sc.hasNextInt()){
+                this.numberOfHumps = sc.nextInt();
+                flag = false;
+            } 
+            else {
+                System.out.println("Некорректный ввод! Введите целое число!");
+                sc.nextLine();
+            }
+        } while (flag);
     }
     public Integer getNumberOfHumps() {
         return numberOfHumps;
