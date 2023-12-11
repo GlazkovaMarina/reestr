@@ -9,9 +9,19 @@ public abstract class PackAnimal  extends Animal{
 
     public PackAnimal(String type) throws IOException {
         super();
-        System.out.println("Введите грузоподъемность (разделитель - запятая): ");
         Scanner sc = new Scanner(System.in);
-        this.bearingForce = sc.nextDouble();
+        boolean flag = true;
+        do{
+            System.out.println("Введите грузоподъемность (разделитель - запятая): ");
+            if (sc.hasNextDouble()){
+                this.bearingForce = sc.nextDouble();
+                flag = false;
+            } 
+            else {
+                System.out.println("Некорректный ввод! Введите число! Если оно дробное, то разделитель - запятая!");
+                sc.nextLine();
+            }
+        } while (flag);
         this.type = type;
     }
     public Double getBearingForce() {
