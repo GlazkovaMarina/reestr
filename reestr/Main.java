@@ -46,7 +46,13 @@ public class Main {
             if (number < 0 || number > 5) {
                 System.out.println("ОШИБКА! Некoрректный ввод!");
             } else {
-                reestr.add(WhoIs(number));
+                try (Counter count = new Counter()) {
+                    reestr.add(WhoIs(number));
+                    count.add();
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+
             }
         }
     }
@@ -60,7 +66,6 @@ public class Main {
         }
     }
 
-    // Вывести список животных по дате рождения
     public static void BirthdayList(ArrayList<Animal> reestr) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -95,59 +100,65 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         ArrayList<Animal> animalReestr = new ArrayList<Animal>();
-        Scanner sc = new Scanner(System.in);
         int number = -1;
-        while (number != 1 || number != 2 || number != 0) {
-            System.out.println(
-                    "\nОСНОВНОЕ МЕНЮ\nЭто реестр животных!\nВыберите действие:\n1 - завести новое животное;\n2 - вывести список животных в реестре;\n3 - вывести команды, выбранного животного;\n4 - добавить команду, выбранному животному;\n5 - вывести список животных по дате рождения;\n0 - завершить работу с реестром!");
-            number = sc.nextInt();
-            switch (number) {
-                case 0:
-                    System.out.println("Работа с реестром завершена! До свидания!");
-                    break;
-                case 1:
-                    AddAnimal(animalReestr);
-                    break;
-                case 2:
-                    PrintReestr(animalReestr);
-                    break;
-                case 3:
-                    PrintReestr(animalReestr);
-                    System.out.println("Выберите животное, указав его порядковый номер в списке: ");
-                    number = sc.nextInt();
-                    int i = 1;
-                    for (Animal animal : animalReestr) {
-                        if (number == i++) {
-                            System.out.println(animal.getCommands());
+        try (Scanner sc = new Scanner(System.in)) {
+            while (number != 1 || number != 2 || number != 0) {
+                System.out.println(
+                        "\nОСНОВНОЕ МЕНЮ\nЭто реестр животных!\nВыберите действие:\n1 - завести новое животное;\n2 - вывести список животных в реестре;\n3 - вывести команды, выбранного животного;\n4 - добавить команду, выбранному животному;\n5 - вывести список животных по дате рождения;\n6 - вывести общее количество созданных животных любого типа;\n0 - завершить работу с реестром!");
+                number = sc.nextInt();
+                switch (number) {
+                    case 0:
+                        System.out.println("Работа с реестром завершена! До свидания!");
+                        break;
+                    case 1:
+                        AddAnimal(animalReestr);
+                        break;
+                    case 2:
+                        PrintReestr(animalReestr);
+                        break;
+                    case 3:
+                        PrintReestr(animalReestr);
+                        System.out.println("Выберите животное, указав его порядковый номер в списке: ");
+                        number = sc.nextInt();
+                        int i = 1;
+                        for (Animal animal : animalReestr) {
+                            if (number == i++) {
+                                System.out.println(animal.getCommands());
+                            }
                         }
-                    }
-                    number = 2;
-                    break;
-                case 4:
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-                    PrintReestr(animalReestr);
-                    System.out.println("Выберите животное, указав его порядковый номер в списке: ");
-                    number = sc.nextInt();
-                    int k = 1;
-                    for (Animal animal : animalReestr) {
-                        if (number == k++) {
-                            System.out.println("Введите новую команду:");
-                            animal.newCommand(bufferedReader.readLine());
+                        number = 2;
+                        break;
+                    case 4:
+                        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+                        PrintReestr(animalReestr);
+                        System.out.println("Выберите животное, указав его порядковый номер в списке: ");
+                        number = sc.nextInt();
+                        int k = 1;
+                        for (Animal animal : animalReestr) {
+                            if (number == k++) {
+                                System.out.println("Введите новую команду:");
+                                animal.newCommand(bufferedReader.readLine());
+                            }
                         }
-                    }
-                    number = 4;
+                        number = 4;
+                        break;
+                    case 5:
+                        BirthdayList(animalReestr);
+                        break;
+                    case 6:
+                        System.out.println(animalReestr.size());
+                        break;
+                    default:
+                        System.out.println("ОШИБКА! Некoрректный ввод!");
+                        break;
+                }
+                if (number == 0) {
+                    sc.close();
                     break;
-                case 5:
-                    BirthdayList(animalReestr);
-                    break;
-                default:
-                    System.out.println("ОШИБКА! Некoрректный ввод!");
-                    break;
+                }
             }
-            if (number == 0) {
-                sc.close();
-                break;
-            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
 
     }
