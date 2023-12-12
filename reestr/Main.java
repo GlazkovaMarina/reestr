@@ -146,6 +146,7 @@ public class Main {
                         BirthdayList(animalReestr);
                         break;
                     case 6:
+                        // System.out.println(Counter.count);
                         System.out.println(animalReestr.size());
                         break;
                     default:
