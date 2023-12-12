@@ -23,12 +23,11 @@ public abstract class Animal {
         name = bufferedReader.readLine();
 
         // birthday
-        Validation validate = new Validation();
         boolean flag = true;
         do {
             System.out.println("Введите дату рождения животного в формате dd-MM-yyyy (Н-р 01-12-2020): ");
             tempBirthday = bufferedReader.readLine();
-            if (validate.isDateValid(tempBirthday)) {
+            if (Validation.isDateValid(tempBirthday)) {
                 flag = false;
             } else {
                 System.out.println("Некорректный формат даты рождения или введена несуществующая дата!");

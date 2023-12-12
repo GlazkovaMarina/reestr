@@ -65,12 +65,11 @@ public class Main {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         String birthday = null;
-        Validation validate = new Validation();
         boolean flag = true;
         do {
             System.out.println("Введите дату рождения животного в формате dd-MM-yyyy (Н-р 01-12-2020): ");
             birthday = bufferedReader.readLine();
-            if (validate.isDateValid(birthday)) {
+            if (Validation.isDateValid(birthday)) {
                 flag = false;
             } else {
                 System.out.println("Некорректный формат даты рождения или введена несуществующая дата!");
