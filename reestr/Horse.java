@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Horse extends PackAnimal{
+public class Horse extends PackAnimal {
     private String kind;
 
     public Horse(String type) throws IOException {
@@ -13,11 +13,14 @@ public class Horse extends PackAnimal{
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         this.kind = bufferedReader.readLine();
     }
+
     public String getKind() {
         return kind;
     }
+
     @Override
     public String toString() {
-        return "type = " + type + ", name = " + name + ", birthday = " + birthday + ", commands = " + commands + ", bearingForce = " + bearingForce +", kind =  " + kind;
+        return "Тип = " + type + ", имя = " + name + ", день рождения = " + birthday + ", команды = " + commands
+                + ", грузоподъемность = " + bearingForce + ", род =  " + kind;
     }
 }

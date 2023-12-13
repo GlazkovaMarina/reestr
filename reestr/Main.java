@@ -46,13 +46,7 @@ public class Main {
             if (number < 0 || number > 5) {
                 System.out.println("ОШИБКА! Некoрректный ввод!");
             } else {
-                try (Counter count = new Counter()) {
-                    reestr.add(WhoIs(number));
-                    count.add();
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
-
+                reestr.add(WhoIs(number));
             }
         }
     }
@@ -101,10 +95,11 @@ public class Main {
     public static void main(String[] args) throws IOException {
         ArrayList<Animal> animalReestr = new ArrayList<Animal>();
         int number = -1;
-        try (Scanner sc = new Scanner(System.in)) {
+        try (Scanner sc = new Scanner(System.in); Counter count = new Counter()) {
             while (number != 1 || number != 2 || number != 0) {
                 System.out.println(
                         "\nОСНОВНОЕ МЕНЮ\nЭто реестр животных!\nВыберите действие:\n1 - завести новое животное;\n2 - вывести список животных в реестре;\n3 - вывести команды, выбранного животного;\n4 - добавить команду, выбранному животному;\n5 - вывести список животных по дате рождения;\n6 - вывести общее количество созданных животных любого типа;\n0 - завершить работу с реестром!");
+                System.out.printf("Ваш выбор: ");
                 number = sc.nextInt();
                 switch (number) {
                     case 0:
@@ -112,6 +107,7 @@ public class Main {
                         break;
                     case 1:
                         AddAnimal(animalReestr);
+                        count.add();
                         break;
                     case 2:
                         PrintReestr(animalReestr);
@@ -146,8 +142,7 @@ public class Main {
                         BirthdayList(animalReestr);
                         break;
                     case 6:
-                        // System.out.println(Counter.count);
-                        System.out.println(animalReestr.size());
+                        System.out.println("Количество животных в реестре: " + Counter.getCount());
                         break;
                     default:
                         System.out.println("ОШИБКА! Некoрректный ввод!");

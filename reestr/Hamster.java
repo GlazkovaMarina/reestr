@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Hamster extends Pet{
+public class Hamster extends Pet {
     private String genus; // род
 
     public Hamster(String type) throws IOException {
@@ -13,11 +13,15 @@ public class Hamster extends Pet{
         System.out.println("Введите род: ");
         this.genus = bufferedReader.readLine();
     }
+
     public String getGenus() {
         return genus;
     }
+
     @Override
     public String toString() {
-        return "type = " + type + ", name = " + name + ", birthday = " + birthday + ", commands = " + commands + ", ownersLastName = " + ownersLastName + ", ownersFirstName = " + ownersFirstName + ", genus =  " + genus;
+        return "Тип = " + type + ", имя = " + name + ", день рождения = " + birthday + ", команды = " + commands
+                + ", фамилия хозяина = " + ownersLastName + ", имя хозяина = " + ownersFirstName + ", род =  "
+                + genus;
     }
 }

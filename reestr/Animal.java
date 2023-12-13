@@ -15,6 +15,7 @@ public abstract class Animal {
     protected ArrayList<String> commands;
 
     public Animal() throws IOException {
+
         String tempBirthday = null;
         String tempCommands = null;
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -41,14 +42,22 @@ public abstract class Animal {
         }
 
         // commands
-        System.out.println(
-                "Введите команды, которые умеет выполнять животное через запятую и пробел (Н-р Сидеть, Лежать, Гавкать): ");
-        tempCommands = bufferedReader.readLine();
-        String[] str = tempCommands.split("[,\\s]+");
-        this.commands = new ArrayList<>();
-        for (String command : str) {
-            this.commands.add(command);
-        }
+        flag = true;
+        do {
+            System.out.println(
+                    "Введите команды, которые умеет выполнять животное через запятую и пробел (Н-р Сидеть, Лежать, Гавкать): ");
+            tempCommands = bufferedReader.readLine();
+            if (Validation.isCommands(tempCommands)) {
+                String[] str = tempCommands.split("[,\\s]+");
+                this.commands = new ArrayList<>();
+                for (String command : str) {
+                    this.commands.add(command);
+                }
+            } else {
+                System.out.println("Некорректный ввод!");
+            }
+        } while (flag);
+
     }
 
     public String getName() {

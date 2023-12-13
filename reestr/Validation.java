@@ -17,4 +17,11 @@ public class Validation {
             return false;
         }
     }
+
+    public static boolean isCommands(String tempCommands) {
+        if (tempCommands.matches("[A-Za-z]+(?:(?:, )[A-Za-z]+)*")) {
+            return true;
+        }
+        return false;
+    }
 }

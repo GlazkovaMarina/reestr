@@ -12,7 +12,11 @@ public class Counter implements AutoCloseable {
 
     @Override
     public void close() throws Exception {
-        throw new UnsupportedOperationException("Unimplemented method 'close'");
+        System.out.println("Counter closed");
+    }
+
+    public static int getCount() {
+        return count;
     }
 
 }

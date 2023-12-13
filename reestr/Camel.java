@@ -7,14 +7,15 @@ public class Camel extends PackAnimal {
 
     @Override
     public String toString() {
-        return "type = " + type + ", name = " + name + ", birthday = " + birthday + ", commands = " + commands
-                + ", bearingForce = " + bearingForce + ", numberOfHumps =  " + numberOfHumps;
+        return "Тип = " + type + ", имя = " + name + ", день рождения = " + birthday + ", список команд = " + commands
+                + ", грузоподъемность = " + bearingForce + ", количество горбов =  " + numberOfHumps;
     }
 
     private Integer numberOfHumps;
 
     public Camel(String type) throws IOException {
         super(type);
+
         Scanner sc = new Scanner(System.in);
         boolean flag = true;
         do {
