@@ -68,7 +68,10 @@ public class ViewUser {
                         userController.addCommand(id, newCommand);
                         break;
                     case LIST_BD:
-                        System.out.println(userController.birthdayList(setDate()));
+                        List<Animal> list_bd = userController.birthdayList(setDate());
+                        for (Animal animal : list_bd) {
+                            System.out.println(animal);
+                        }
                         break;
                     case COUNT:
                         System.out.println("Количество новых животных в реестре: " + Counter.getCount());
