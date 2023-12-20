@@ -60,7 +60,8 @@ public class RepositotyFile implements Repository {
                 return animal.getCommands();
             }
         }
-        throw new Exception("Animal does not found");
+        System.out.println("Animal does not found");
+        return new ArrayList<String>();
     }
 
     @Override
