@@ -1,0 +1,14 @@
+DOG; 1; Reks; 11-04-2020; Sit, lie, gav; Иванов; Иван; Овчарка
+DOG; 2; Uma; 03-12-2009; Sit; Петрова; Ира; Болонка
+HORSE; 3; Tom; 12-06-2000; Sit, jump; 20.0; Американская Верховая
+CAT; 4; Bella; 01-11-2008; Sit, lie; Иванов; Иван; рыжая
+HAMSTER; 5; Kitti; 17-08-2022; Sit, jump; Иванов; Иван; джунгарик
+DONKEY; 6; Bob; 07-05-2018; Sit; 190.0; дикий осел
+CAMEL; 7; Ferz; 13-04-2021; Sit, lie, jump; 90.0; 2
+DONKEY; 8; Lila; 19-04-2016; Sit, jump; 200.0; кулан
+DOG; 9; Nord; 19-11-2019; sit, gav, LIE; Elena; Kacharmina; Dvornyga
+HAMSTER; 10; Q; 12-12-2020; Q; QW; QW; WQ
+CAT; 11; Q; 12-12-2020; SIT; DFS; FD; FDS
+DONKEY; 12; jhh; 12-12-2020; dd; 23.4; fdf
+DOG; 13; d; 21-12-2000; d; dfs; fd; dfs
+DOG; 14; q; 12-12-2000; ds; sad; sd; sdf
