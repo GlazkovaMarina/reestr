@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 import reestr.Counter;
@@ -52,7 +53,10 @@ public class ViewUser {
                         count.add();
                         break;
                     case LIST:
-                        System.out.println(userController.AnimalList());
+                        List<Animal> list = userController.AnimalList();
+                        for (Animal animal : list) {
+                            System.out.println(animal);
+                        }
                         break;
                     case COMMANDS:
                         id = prompt("Введите id животного: ");

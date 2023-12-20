@@ -6,4 +6,4 @@ HAMSTER; 5; Kitti; 17-08-2022; Sit, jump; Иванов; Иван; джунгар
 DONKEY; 6; Bob; 07-05-2018; Sit; 190; дикий осел
 CAMEL; 7; Ferz; 13-04-2021; Sit, lie, jump; 90; 2
 DONKEY; 8; Lila; 19-04-2016; Sit, jump; 200; кулан
-DOG; 9; Nord; 19-11-2019; sit, gav; Elena; Kacharmina; Dvornyga
+DOG; 9; Nord; 19-11-2021; sit, gav; Elena; Kacharmina; метис
