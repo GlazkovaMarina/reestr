@@ -14,6 +14,6 @@ public interface Repository {
 
     public void addCommand(String userId, String newCommand);
 
-    public List<Animal> birthdayList(Date birthdate) throws Exception;
+    public List<Animal> birthdayList(Date birthdate);
 
 }

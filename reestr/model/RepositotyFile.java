@@ -76,7 +76,7 @@ public class RepositotyFile implements Repository {
     }
 
     @Override
-    public List<Animal> birthdayList(Date birthdate) throws Exception {
+    public List<Animal> birthdayList(Date birthdate) {
         List<Animal> animals = getAllAnimals();
         List<Animal> animals_bd = new ArrayList<Animal>();
         for (Animal animal : animals) {
@@ -84,10 +84,10 @@ public class RepositotyFile implements Repository {
                 animals_bd.add(animal);
             }
         }
-        if (animals_bd.isEmpty())
-            throw new Exception("Animals with such birthday do not found");
-        else
-            return animals_bd;
+        if (animals_bd.isEmpty()) {
+            System.out.println("Животные с таким днем рождения не найдены!");
+        }
+        return animals_bd;
     }
 
 }
